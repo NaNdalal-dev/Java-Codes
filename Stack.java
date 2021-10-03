@@ -1,6 +1,6 @@
 
 class Stack{
-	int size,count=0;
+	int size,top=-1;
 	int arr[];
 	public Stack(int sz){
 		size = sz;
@@ -8,9 +8,9 @@ class Stack{
 	}
 	
 	public String push(int val){
-		if(count < size){
-			arr[count] = val;
-			count += 1;
+		if(top < size){
+			top += 1;
+			arr[top] = val;
 			return "Pushed";
 		}
 		else{
@@ -19,16 +19,16 @@ class Stack{
 	}
 	
 	public String pop(){
-		if(count == 0){
+		if(top == 0){
 			System.out.println("---Stack UnderFlow---");
 			return "Stack UnderFlow";
 			
 		}
 		
 		else {
-			System.out.println("---"+arr[count-1]+" poped from stack.--");
-			arr[count] = 0;
-			count -= 1;
+			System.out.println("---"+arr[top]+" poped from stack.--");
+			arr[top] = 0;
+			top -= 1;
 			return "Poped";
 		}
 	}
@@ -36,26 +36,26 @@ class Stack{
 	
 	
 	public void show(){
-		if (count == 0){
+		if (top == 0){
 			System.out.println("---Stack is Empty.---");
 		}
 		else{
 			System.out.println("---Elements in Stack:---");
-			for(int i=count-1; i>-1; i-=1){
+			for(int i=top; i>-1; i-=1){
 				System.out.println(arr[i]);
 			}
 		}
 	}
 	
 	public int peek(){
-		if (count == 0){
+		if (top == 0){
 			System.out.println("---Stack is Empty.---");
 			return 0;
 		}
 		else{
 			System.out.println("---Element on Top---");
-			System.out.println(arr[count-1]);
-			return arr[count-1];
+			System.out.println(arr[top]);
+			return arr[top];
 		}
 	}
 	
